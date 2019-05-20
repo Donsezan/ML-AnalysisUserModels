@@ -31,6 +31,27 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.checkBox21 = new System.Windows.Forms.CheckBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.checkBox17 = new System.Windows.Forms.CheckBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -78,27 +99,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LicnkTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.checkBox21 = new System.Windows.Forms.CheckBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -198,6 +198,202 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ml Filter";
+            // 
+            // checkBox22
+            // 
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox22.Location = new System.Drawing.Point(404, 567);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(80, 24);
+            this.checkBox22.TabIndex = 65;
+            this.checkBox22.Text = "Include";
+            this.checkBox22.UseVisualStyleBackColor = true;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(235, 569);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(163, 20);
+            this.textBox22.TabIndex = 64;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label23.Location = new System.Drawing.Point(10, 571);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(106, 20);
+            this.label23.TabIndex = 63;
+            this.label23.Text = "user_anon_id";
+            // 
+            // checkBox21
+            // 
+            this.checkBox21.AutoSize = true;
+            this.checkBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox21.Location = new System.Drawing.Point(404, 541);
+            this.checkBox21.Name = "checkBox21";
+            this.checkBox21.Size = new System.Drawing.Size(75, 24);
+            this.checkBox21.TabIndex = 62;
+            this.checkBox21.Text = "Higher";
+            this.checkBox21.UseVisualStyleBackColor = true;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(235, 543);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(163, 20);
+            this.textBox21.TabIndex = 61;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label22.Location = new System.Drawing.Point(10, 545);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(172, 20);
+            this.label22.TabIndex = 60;
+            this.label22.Text = "game_completion_rate";
+            // 
+            // checkBox20
+            // 
+            this.checkBox20.AutoSize = true;
+            this.checkBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox20.Location = new System.Drawing.Point(404, 515);
+            this.checkBox20.Name = "checkBox20";
+            this.checkBox20.Size = new System.Drawing.Size(75, 24);
+            this.checkBox20.TabIndex = 59;
+            this.checkBox20.Text = "Higher";
+            this.checkBox20.UseVisualStyleBackColor = true;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(235, 517);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(163, 20);
+            this.textBox20.TabIndex = 58;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label21.Location = new System.Drawing.Point(10, 519);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(204, 20);
+            this.label21.TabIndex = 57;
+            this.label21.Text = "game_session_length_sum";
+            // 
+            // checkBox19
+            // 
+            this.checkBox19.AutoSize = true;
+            this.checkBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox19.Location = new System.Drawing.Point(404, 489);
+            this.checkBox19.Name = "checkBox19";
+            this.checkBox19.Size = new System.Drawing.Size(75, 24);
+            this.checkBox19.TabIndex = 56;
+            this.checkBox19.Text = "Higher";
+            this.checkBox19.UseVisualStyleBackColor = true;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(235, 491);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(163, 20);
+            this.textBox19.TabIndex = 55;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(10, 493);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(196, 20);
+            this.label20.TabIndex = 54;
+            this.label20.Text = "game_session_length_std";
+            // 
+            // checkBox18
+            // 
+            this.checkBox18.AutoSize = true;
+            this.checkBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox18.Location = new System.Drawing.Point(404, 463);
+            this.checkBox18.Name = "checkBox18";
+            this.checkBox18.Size = new System.Drawing.Size(75, 24);
+            this.checkBox18.TabIndex = 53;
+            this.checkBox18.Text = "Higher";
+            this.checkBox18.UseVisualStyleBackColor = true;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(235, 465);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(163, 20);
+            this.textBox18.TabIndex = 52;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(10, 467);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(214, 20);
+            this.label19.TabIndex = 51;
+            this.label19.Text = "game_session_length_mean";
+            // 
+            // checkBox17
+            // 
+            this.checkBox17.AutoSize = true;
+            this.checkBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox17.Location = new System.Drawing.Point(404, 437);
+            this.checkBox17.Name = "checkBox17";
+            this.checkBox17.Size = new System.Drawing.Size(75, 24);
+            this.checkBox17.TabIndex = 50;
+            this.checkBox17.Text = "Higher";
+            this.checkBox17.UseVisualStyleBackColor = true;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(235, 439);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(163, 20);
+            this.textBox17.TabIndex = 49;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(10, 441);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(185, 20);
+            this.label18.TabIndex = 48;
+            this.label18.Text = "game_session_weekend";
+            // 
+            // checkBox16
+            // 
+            this.checkBox16.AutoSize = true;
+            this.checkBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox16.Location = new System.Drawing.Point(404, 411);
+            this.checkBox16.Name = "checkBox16";
+            this.checkBox16.Size = new System.Drawing.Size(75, 24);
+            this.checkBox16.TabIndex = 47;
+            this.checkBox16.Text = "Higher";
+            this.checkBox16.UseVisualStyleBackColor = true;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(235, 413);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(163, 20);
+            this.textBox16.TabIndex = 46;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(10, 415);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(130, 20);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "n_game_session";
             // 
             // checkBox15
             // 
@@ -637,202 +833,6 @@
             this.label13.Size = new System.Drawing.Size(111, 20);
             this.label13.TabIndex = 3;
             this.label13.Text = "Ml service Link";
-            // 
-            // checkBox16
-            // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox16.Location = new System.Drawing.Point(404, 411);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(75, 24);
-            this.checkBox16.TabIndex = 47;
-            this.checkBox16.Text = "Higher";
-            this.checkBox16.UseVisualStyleBackColor = true;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(235, 413);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(163, 20);
-            this.textBox16.TabIndex = 46;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(10, 415);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(130, 20);
-            this.label17.TabIndex = 45;
-            this.label17.Text = "n_game_session";
-            // 
-            // checkBox17
-            // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox17.Location = new System.Drawing.Point(404, 437);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(75, 24);
-            this.checkBox17.TabIndex = 50;
-            this.checkBox17.Text = "Higher";
-            this.checkBox17.UseVisualStyleBackColor = true;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(235, 439);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(163, 20);
-            this.textBox17.TabIndex = 49;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.Location = new System.Drawing.Point(10, 441);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(185, 20);
-            this.label18.TabIndex = 48;
-            this.label18.Text = "game_session_weekend";
-            // 
-            // checkBox18
-            // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox18.Location = new System.Drawing.Point(404, 463);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(75, 24);
-            this.checkBox18.TabIndex = 53;
-            this.checkBox18.Text = "Higher";
-            this.checkBox18.UseVisualStyleBackColor = true;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(235, 465);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(163, 20);
-            this.textBox18.TabIndex = 52;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.Location = new System.Drawing.Point(10, 467);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(214, 20);
-            this.label19.TabIndex = 51;
-            this.label19.Text = "game_session_length_mean";
-            // 
-            // checkBox19
-            // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox19.Location = new System.Drawing.Point(404, 489);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(75, 24);
-            this.checkBox19.TabIndex = 56;
-            this.checkBox19.Text = "Higher";
-            this.checkBox19.UseVisualStyleBackColor = true;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(235, 491);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(163, 20);
-            this.textBox19.TabIndex = 55;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label20.Location = new System.Drawing.Point(10, 493);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(196, 20);
-            this.label20.TabIndex = 54;
-            this.label20.Text = "game_session_length_std";
-            // 
-            // checkBox20
-            // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox20.Location = new System.Drawing.Point(404, 515);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(75, 24);
-            this.checkBox20.TabIndex = 59;
-            this.checkBox20.Text = "Higher";
-            this.checkBox20.UseVisualStyleBackColor = true;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(235, 517);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(163, 20);
-            this.textBox20.TabIndex = 58;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label21.Location = new System.Drawing.Point(10, 519);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(204, 20);
-            this.label21.TabIndex = 57;
-            this.label21.Text = "game_session_length_sum";
-            // 
-            // checkBox21
-            // 
-            this.checkBox21.AutoSize = true;
-            this.checkBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox21.Location = new System.Drawing.Point(404, 541);
-            this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(75, 24);
-            this.checkBox21.TabIndex = 62;
-            this.checkBox21.Text = "Higher";
-            this.checkBox21.UseVisualStyleBackColor = true;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(235, 543);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(163, 20);
-            this.textBox21.TabIndex = 61;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label22.Location = new System.Drawing.Point(10, 545);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(172, 20);
-            this.label22.TabIndex = 60;
-            this.label22.Text = "game_completion_rate";
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox22.Location = new System.Drawing.Point(404, 567);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(64, 24);
-            this.checkBox22.TabIndex = 65;
-            this.checkBox22.Text = "More";
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(235, 569);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(163, 20);
-            this.textBox22.TabIndex = 64;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label23.Location = new System.Drawing.Point(10, 571);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(106, 20);
-            this.label23.TabIndex = 63;
-            this.label23.Text = "user_anon_id";
             // 
             // Options
             // 

@@ -100,8 +100,8 @@ namespace WindowsFormsMLTest
             this.pictureBox1 = new ChartDirector.WinChartViewer();
             this.pictureBox2 = new ChartDirector.WinChartViewer();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.OptionButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -791,35 +791,35 @@ namespace WindowsFormsMLTest
             this.pictureBox2.TabIndex = 30;
             this.pictureBox2.TabStop = false;
             // 
-            // button1
+            // OptionButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(312, 30);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Options";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OptionButton.Location = new System.Drawing.Point(12, 10);
+            this.OptionButton.Name = "OptionButton";
+            this.OptionButton.Size = new System.Drawing.Size(312, 30);
+            this.OptionButton.TabIndex = 31;
+            this.OptionButton.Text = "Options";
+            this.OptionButton.UseVisualStyleBackColor = true;
+            this.OptionButton.Click += new System.EventHandler(this.OptionButton_Click);
             // 
-            // button3
+            // EditButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(113, 545);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
-            this.button3.TabIndex = 32;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditButton.Location = new System.Drawing.Point(113, 545);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 25);
+            this.EditButton.TabIndex = 32;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 582);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.EditButton);
+            this.Controls.Add(this.OptionButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
@@ -918,8 +918,8 @@ namespace WindowsFormsMLTest
         private WinChartViewer pictureBox1;
         private WinChartViewer pictureBox2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button OptionButton;
+        private System.Windows.Forms.Button EditButton;
     }
 }
 

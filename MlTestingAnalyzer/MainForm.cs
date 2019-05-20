@@ -160,16 +160,7 @@ namespace WindowsFormsMLTest
         private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var curItem = listBox1.SelectedItem.ToString();
-
-
-
-
             InputTextBox.Text = _jsList[_index];
-
-            //var element = InputTextBox.Text.Split(new[] { "game_category_vector" }, StringSplitOptions.None)[1].Split(new[] { "user_game_vector" }, StringSplitOptions.None)[0].Substring(4); ;
-
-            //var vectors = element.Remove(element.Length - 3).Split(',');
-            // Find the string in ListBox2.
             _index = listBox1.FindString(curItem);
             if (_index != -1)
             {
@@ -200,7 +191,7 @@ namespace WindowsFormsMLTest
 
                 InputTextBox.Text = log.ToString();
                 var vectors = element.game_category_vector.Split(',');
-                ActionTextBox.Text = vectors[0];
+                ActionTextBox.Text = vectors[0].Substring(1);
                 ArcadeTextBox.Text = vectors[1];
                 BrainTextBox.Text = vectors[2];
                 CardTextBox.Text = vectors[3];
@@ -213,7 +204,7 @@ namespace WindowsFormsMLTest
                 QuizzestextBox9.Text = vectors[10];
                 SolitairetextBox8.Text = vectors[11];
                 StrategytextBox7.Text = vectors[12];
-                WordtextBox6.Text = vectors[13];
+                WordtextBox6.Text = vectors[13].Remove(vectors[13].Length - 1);
 
 
                 var categoryVectors = new GameCategoriesModel
@@ -233,6 +224,7 @@ namespace WindowsFormsMLTest
                     Strategy = Convert.ToDouble(vectors[12]),
                     Word = Convert.ToDouble(vectors[13].Remove(vectors[13].Length - 1)),
                 };
+
                 CreateChart(pictureBox1, categoryVectors);
                 if (!_mlVectors.ContainsKey(_index))
                 {
@@ -242,9 +234,9 @@ namespace WindowsFormsMLTest
                 if (checkBox1.Checked)
                 {
                     var model = await GetMlModel();
-                    var gamevectors = await GetGameVector(model);
-                    CreateChart(pictureBox2, gamevectors);
-                    DrawVectors(gamevectors);
+                    var categoriesModel = await GetGameVector(model);
+                    CreateChart(pictureBox2, categoriesModel);
+                    DrawVectors(categoriesModel);
                 }
             }
         }
@@ -372,13 +364,13 @@ namespace WindowsFormsMLTest
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OptionButton_Click(object sender, EventArgs e)
         {
             var option = new Options();
             option.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
             var json = _jsList[_index];
             InputTextBox.Text = json;

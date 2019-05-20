@@ -18,7 +18,7 @@ namespace WindowsFormsMLTest
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var values = line.Split(new string[] { "\",\"" }, StringSplitOptions.None);
+                    var values = line.Split(new [] { "\",\"" }, StringSplitOptions.None);
                     var blobElement = new BlobDataContract
                     {
                         user_anon_id = values[0].Replace("\"\"", "").Replace("\"", ""),
