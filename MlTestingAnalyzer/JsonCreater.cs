@@ -5,10 +5,10 @@ namespace WindowsFormsMLTest
 {
     public static class JsonCreater
     {
-        public static List<string> CrreateJson(List<BlobDataContract> blobDataContracts)
+        public static List<string> CrreateJson(List<BlobDataContract> blobDataContracts, int limit)
         {
             var jsList = new List<string>();
-            var limit = 0;
+            var startIteration = 0;
             foreach (var blob in blobDataContracts)
             {
                 var js = string.Empty;
@@ -40,8 +40,8 @@ namespace WindowsFormsMLTest
                 js += $"\"timestamp\":\"{DateTime.Now:o}\"";
                 js += "}]";
                 jsList.Add(js);
-                limit++;
-                if (limit > 1000)
+                startIteration++;
+                if (startIteration > limit)
                 {
                     break;
                 }
@@ -82,19 +82,6 @@ namespace WindowsFormsMLTest
             js += "}]";
             limit++;
             return js;
-        }
-        public static string CrreateJson(string blob)
-        {
-            var js = "[{";
-            js += blob;
-            js += "}]";
-
-
-
-
-
-
-                return js;
         }
     }
 }

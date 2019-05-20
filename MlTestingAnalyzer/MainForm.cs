@@ -1,30 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChartDirector;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace WindowsFormsMLTest
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        private List<string> JsList = new List<string>();
-        private List<BlobDataContract> CsvData = new List<BlobDataContract>();
-        private int Index = 0;
-        private static ArenaApiDataContract arenaApiData = null;
-        private Dictionary<int, GameCategoriesModel> MlVectors = new Dictionary<int, GameCategoriesModel>();
+        private List<string> _jsList = new List<string>();
+        private List<BlobDataContract> _csvData = new List<BlobDataContract>();
+        private int _index;
+        private static ArenaApiDataContract _arenaApiData;
+        private readonly Dictionary<int, GameCategoriesModel> _mlVectors = new Dictionary<int, GameCategoriesModel>();
+        private bool _editFlag;
+        private const int LoadLimit = 50000;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             ProgramEnvironment.MlServiceLink = "http://recsys.arkadium-inhabit.com/score";
@@ -32,17 +28,27 @@ namespace WindowsFormsMLTest
 
         private async void CheckButton_Click(object sender, EventArgs e)
         {
-            var model = await GetMlmodel(InputTextBox.Text);
-            var categotyVector = await GetGameVector(model);
-            createChart(pictureBox2, categotyVector);
-            DrawVectors(categotyVector);
-            if (!MlVectors.ContainsKey(Index))
+            string[] model;
+            if (_editFlag)
             {
-                MlVectors.Add(Index, categotyVector);
+                model = await GetMlModel(InputTextBox.Text);
+                _editFlag = false;
             }
             else
             {
-                MlVectors[Index] = categotyVector;
+                model = await GetMlModel();
+            }
+         
+            var categoryVector = await GetGameVector(model);
+            CreateChart(pictureBox2, categoryVector);
+            DrawVectors(categoryVector);
+            if (!_mlVectors.ContainsKey(_index))
+            {
+                _mlVectors.Add(_index, categoryVector);
+            }
+            else
+            {
+                _mlVectors[_index] = categoryVector;
             }
         }
 
@@ -72,14 +78,14 @@ namespace WindowsFormsMLTest
             }
         }
 
-        private async  Task<string[]> GetMlmodel(string newModel = "")
+        private async  Task<string[]> GetMlModel(string input = "")
         {
             OutputTextBox.Text = string.Empty;
-            var input = JsList[Index];
-            if (newModel != "")
+            if (input == "")
             {
-                input = newModel;
+                input = _jsList[_index];
             }
+       
 
             var result = await SendPost(input);
 
@@ -89,7 +95,7 @@ namespace WindowsFormsMLTest
             var games = "";
             var similarities = "";
             var gameArray = new string[int.Parse(textBox1.Text)];
-            for (int i = 0; i < int.Parse(textBox1.Text); i++)
+            for (var i = 0; i < int.Parse(textBox1.Text); i++)
             {
                 gameArray[i] = results.games[i];
                 games += results.games[i] + ", ";
@@ -122,20 +128,20 @@ namespace WindowsFormsMLTest
         {
             if (ProgramEnvironment.ListOfRule == null)
             {
-                CsvData = FileHelper.ReadCsv(PathTextBox.Text);
+                _csvData = FileHelper.ReadCsv(PathTextBox.Text);
             }
             else if (ProgramEnvironment.ListOfRule.Count == 0)
             {
-                CsvData = FileHelper.ReadCsv(PathTextBox.Text);
+                _csvData = FileHelper.ReadCsv(PathTextBox.Text);
             }
             else
             {
                 foreach (var func in ProgramEnvironment.ListOfRule)
                 {
-                    CsvData = func(CsvData);
+                    _csvData = func(_csvData);
                 }
             }
-            JsList = JsonCreater.CrreateJson(CsvData);
+            _jsList = JsonCreater.CrreateJson(_csvData, LoadLimit);
 
             listBox1.Items.Clear();
             //listBox1.MultiColumn = true;
@@ -143,7 +149,7 @@ namespace WindowsFormsMLTest
             //listBox1.SelectionMode = SelectionMode.MultiExtended;
             listBox1.BeginUpdate();
             var i = 0;
-            foreach (var js in JsList)
+            foreach (var js in _jsList)
             {
                 listBox1.Items.Add(i);
                 i++;
@@ -154,73 +160,65 @@ namespace WindowsFormsMLTest
         private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var curItem = listBox1.SelectedItem.ToString();
-            InputTextBox.Text = JsList[Index];
 
-            var element = InputTextBox.Text.Split(new[] { "game_category_vector" }, StringSplitOptions.None)[1].Split(new[] { "user_game_vector" }, StringSplitOptions.None)[0].Substring(4); ;
 
-            var vectors = element.Remove(element.Length - 3).Split(',');
+
+
+            InputTextBox.Text = _jsList[_index];
+
+            //var element = InputTextBox.Text.Split(new[] { "game_category_vector" }, StringSplitOptions.None)[1].Split(new[] { "user_game_vector" }, StringSplitOptions.None)[0].Substring(4); ;
+
+            //var vectors = element.Remove(element.Length - 3).Split(',');
             // Find the string in ListBox2.
-            Index = listBox1.FindString(curItem);
-            if (Index != -1)
+            _index = listBox1.FindString(curItem);
+            if (_index != -1)
             {
-                //    var log = new StringBuilder();
-                //    var element = CsvData[Index];
-                //    log.AppendLine($"client_CountryOrRegion: {element.client_CountryOrRegion}");
-                //    log.AppendLine($"client_StateOrProvince: {element.client_StateOrProvince}");
-                //    log.AppendLine($"client_City: {element.client_City}");
-                //    log.AppendLine($"client_OS: {element.client_OS}");
-                //    log.AppendLine($"client_Model: {element.client_Model}");
-                //    log.AppendLine($"client_Browser: {element.client_Browser}");
-                //    log.AppendLine($"session_landing_page_vector: {element.session_landing_page_vector}");
-                //    log.AppendLine($"session_daytime_vector: {element.session_daytime_vector}");
-                //    log.AppendLine($"session_weekend: {element.session_weekend}");
-                //    log.AppendLine($"n_session: {element.n_session}");
-                //    log.AppendLine($"session_length_mean: {element.session_length_mean}");
-                //    log.AppendLine($"session_length_std: {element.session_length_std}");
-                //    log.AppendLine($"session_length_sum: {element.session_length_sum}");
-                //    log.AppendLine($"game_category_vector: {element.game_category_vector}");
-                //    log.AppendLine($"user_game_vector: {element.user_game_vector}");
-                //    InputTextBox.Text = log.ToString();
-                //    var vectors = element.game_category_vector.Split(',');
-                //    ActionTextBox.Text = vectors[0].Substring(1);
-                //    ArcadeTextBox.Text = vectors[1];
-                //    BrainTextBox.Text = vectors[2];
-                //    CardTextBox.Text = vectors[3];
-                //    CasinotextBox3.Text = vectors[4];
-                //    CrosswordtextBox4.Text = vectors[5];
-                //    MatchingtextBox5.Text = vectors[6];
-                //    MeTVtextBox11.Text = vectors[7];
-                //    PuzzletextBox12.Text = vectors[8];
-                //    PuzzlestextBox10.Text = vectors[9];
-                //    QuizzestextBox9.Text = vectors[10];
-                //    SolitairetextBox8.Text = vectors[11];
-                //    StrategytextBox7.Text = vectors[12];
-                //    WordtextBox6.Text = vectors[13].Remove(vectors[13].Length - 1);
-            //    var vectors = new string[element.Length];
-            //for (int i = 0; i < element.Length; i++)
-            //{
-            //    vectors[i] = element[i].ToString();
-            //}
+                var log = new StringBuilder();
+                var element = _csvData[_index];
+                log.AppendLine($"client_CountryOrRegion: {element.client_CountryOrRegion}");
+                log.AppendLine($"client_StateOrProvince: {element.client_StateOrProvince}");
+                log.AppendLine($"client_City: {element.client_City}");
+                log.AppendLine($"client_OS: {element.client_OS}");
+                log.AppendLine($"client_Model: {element.client_Model}");
+                log.AppendLine($"client_Browser: {element.client_Browser}");
+                log.AppendLine($"session_landing_page_vector: {element.session_landing_page_vector}");
+                log.AppendLine($"session_daytime_vector: {element.session_daytime_vector}");
+                log.AppendLine($"session_weekend: {element.session_weekend}");
+                log.AppendLine($"n_session: {element.n_session}");
+                log.AppendLine($"session_length_mean: {element.session_length_mean}");
+                log.AppendLine($"session_length_std: {element.session_length_std}");
+                log.AppendLine($"session_length_sum: {element.session_length_sum}");
+                log.AppendLine($"game_category_vector: {element.game_category_vector}");
+                log.AppendLine($"user_game_vector: {element.user_game_vector}");
+                log.AppendLine($"n_game_session: {element.n_game_session}");
+                log.AppendLine($"game_session_weekend: {element.game_session_weekend}");
+                log.AppendLine($"game_session_length_mean: {element.game_session_length_mean}");
+                log.AppendLine($"game_session_length_std: {element.game_session_length_std}");
+                log.AppendLine($"game_session_length_sum: {element.game_session_length_sum}");
+                log.AppendLine($"game_completion_rate: {element.game_completion_rate}");
+                log.AppendLine($"user_anon_id: {element.user_anon_id}");
 
-            ActionTextBox.Text = vectors[0];
-            ArcadeTextBox.Text = vectors[1];
-            BrainTextBox.Text = vectors[2];
-            CardTextBox.Text = vectors[3];
-            CasinotextBox3.Text = vectors[4];
-            CrosswordtextBox4.Text = vectors[5];
-            MatchingtextBox5.Text = vectors[6];
-            MeTVtextBox11.Text = vectors[7];
-            PuzzletextBox12.Text = vectors[8];
-            PuzzlestextBox10.Text = vectors[9];
-            QuizzestextBox9.Text = vectors[10];
-            SolitairetextBox8.Text = vectors[11];
-            StrategytextBox7.Text = vectors[12];
-            WordtextBox6.Text = vectors[13];
+                InputTextBox.Text = log.ToString();
+                var vectors = element.game_category_vector.Split(',');
+                ActionTextBox.Text = vectors[0];
+                ArcadeTextBox.Text = vectors[1];
+                BrainTextBox.Text = vectors[2];
+                CardTextBox.Text = vectors[3];
+                CasinotextBox3.Text = vectors[4];
+                CrosswordtextBox4.Text = vectors[5];
+                MatchingtextBox5.Text = vectors[6];
+                MeTVtextBox11.Text = vectors[7];
+                PuzzletextBox12.Text = vectors[8];
+                PuzzlestextBox10.Text = vectors[9];
+                QuizzestextBox9.Text = vectors[10];
+                SolitairetextBox8.Text = vectors[11];
+                StrategytextBox7.Text = vectors[12];
+                WordtextBox6.Text = vectors[13];
 
 
-            var categoryVectors = new GameCategoriesModel
+                var categoryVectors = new GameCategoriesModel
                 {
-                    Action = Convert.ToDouble(vectors[0]),
+                    Action = Convert.ToDouble(vectors[0].Substring(1)),
                     Arcade = Convert.ToDouble(vectors[1]),
                     BrainGames = Convert.ToDouble(vectors[2]),
                     Card = Convert.ToDouble(vectors[3]),
@@ -233,26 +231,25 @@ namespace WindowsFormsMLTest
                     Quizzes = Convert.ToDouble(vectors[10]),
                     Solitaire = Convert.ToDouble(vectors[11]),
                     Strategy = Convert.ToDouble(vectors[12]),
-                    Word = Convert.ToDouble(vectors[13]),
+                    Word = Convert.ToDouble(vectors[13].Remove(vectors[13].Length - 1)),
                 };
-                createChart(pictureBox1, categoryVectors);
-                if (!MlVectors.ContainsKey(Index))
+                CreateChart(pictureBox1, categoryVectors);
+                if (!_mlVectors.ContainsKey(_index))
                 {
-                    MlVectors.Add(Index, categoryVectors);
+                    _mlVectors.Add(_index, categoryVectors);
                 }
 
                 if (checkBox1.Checked)
                 {
-                    var model = await GetMlmodel(InputTextBox.Text);
+                    var model = await GetMlModel();
                     var gamevectors = await GetGameVector(model);
-                    createChart(pictureBox2, gamevectors);
+                    CreateChart(pictureBox2, gamevectors);
                     DrawVectors(gamevectors);
                 }
             }
         }
 
-
-        public void createChart(WinChartViewer viewer, GameCategoriesModel vModel)
+        public void CreateChart(WinChartViewer viewer, GameCategoriesModel vModel)
         {
             // The data for the chart
             double[] data = {
@@ -292,17 +289,18 @@ namespace WindowsFormsMLTest
             //include tool tip for the chart
             viewer.ImageMap = c.getHTMLImageMap("clickable", "", "title='{label}: score = {value}'");
         }
+
         public static async Task<GameCategoriesModel> GetGameVector(string[] games)
         {
-            if (arenaApiData == null)
+            if (_arenaApiData == null)
             {
-                arenaApiData = await DownloadAsync();
+                _arenaApiData = await DownloadAsync();
             }
 
             var categoryVector = new GameCategoriesModel();
             var gameList = games.ToList();
             var weight = 1.0 / games.Length;
-            foreach (var game in arenaApiData.games)
+            foreach (var game in _arenaApiData.games)
             {
                 if (gameList.Contains(game.key))
                 {
@@ -378,6 +376,13 @@ namespace WindowsFormsMLTest
         {
             var option = new Options();
             option.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var json = _jsList[_index];
+            InputTextBox.Text = json;
+            _editFlag = true;
         }
     }
 }
