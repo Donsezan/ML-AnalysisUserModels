@@ -834,7 +834,7 @@ namespace WindowsFormsMLTest
             this.Controls.Add(this.CheckButton);
             this.Controls.Add(this.InputTextBox);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "MLTest 1.3";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
